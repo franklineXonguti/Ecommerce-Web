@@ -7,6 +7,39 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.2.0] - 2024-01-01
+
+### Added
+- Complete Stripe payment integration
+  - Checkout session creation
+  - Webhook handler for payment events
+  - Automatic order status updates
+  - Stock reduction on payment success
+  - Payment verification
+- Complete M-Pesa payment integration
+  - STK Push implementation
+  - OAuth token generation
+  - Callback handler
+  - Transaction status query
+  - Automatic payment verification
+- Payment services layer
+  - StripeService utility class
+  - MPesaService utility class
+- Payment endpoints
+  - Payment status endpoint
+  - M-Pesa query status endpoint
+- Background tasks
+  - Check pending M-Pesa payments (every 5 minutes)
+  - Process refunds
+- Payment testing guide
+- Payment serializers
+
+### Changed
+- Updated Celery beat schedule with payment checks
+- Added requests library dependency
+
+## [0.1.0] - 2024-01-01
+
 ### Added
 - Cart operations (add, update, remove items)
 - Checkout endpoint with stock validation
@@ -57,5 +90,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Django Channels for WebSockets
 - Admin interfaces for all models
 
-[Unreleased]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.0.1...HEAD
+[Unreleased]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.2.0...HEAD
+[0.2.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.1.0...v0.2.0
+[0.1.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/franklineXonguti/Ecommerce-Web/releases/tag/v0.0.1
