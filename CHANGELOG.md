@@ -7,6 +7,48 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.3.0] - 2024-01-01
+
+### Added
+- Complete Meilisearch integration
+  - MeilisearchService with CRUD operations
+  - Automatic product indexing via signals
+  - Index configuration (searchable, filterable, sortable attributes)
+  - Typo tolerance and ranking rules
+  - Real-time sync on product changes
+- Advanced product search
+  - Search with filters (category, vendor, price range)
+  - Multiple sort options (price, date, name)
+  - Pagination support
+  - Query parameter support
+- AI recommendation engine
+  - Personalized user recommendations
+  - Collaborative filtering algorithm
+  - Purchase history analysis
+  - View history analysis
+  - Cart-based recommendations
+  - Category-based recommendations
+  - Trending products (7-day window)
+  - 'Customers also bought' feature
+  - Event tracking (view, cart, purchase)
+  - Cache optimization (1-hour TTL)
+- Management commands
+  - configure_search: Setup Meilisearch index
+  - reindex_products: Bulk reindex all products
+- Background tasks
+  - Precompute user recommendations
+  - Precompute product recommendations
+  - Batch recommendation computation (daily)
+- New API endpoints
+  - GET /api/recommendations/for-user/
+  - GET /api/recommendations/for-product/:id/
+  - POST /api/recommendations/track/
+  - Enhanced /api/search/products/
+
+### Changed
+- Updated Celery beat schedule with recommendation tasks
+- Enhanced search app with signals and tasks
+
 ## [0.2.0] - 2024-01-01
 
 ### Added
@@ -90,7 +132,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Django Channels for WebSockets
 - Admin interfaces for all models
 
-[Unreleased]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.2.0...HEAD
+[Unreleased]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.3.0...HEAD
+[0.3.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.0.1...v0.1.0
 [0.0.1]: https://github.com/franklineXonguti/Ecommerce-Web/releases/tag/v0.0.1
