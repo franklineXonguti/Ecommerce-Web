@@ -18,4 +18,8 @@ app.conf.beat_schedule = {
         'task': 'analytics.tasks.update_daily_metrics',
         'schedule': crontab(hour=1, minute=0),  # Daily at 1 AM
     },
+    'check-pending-mpesa-payments': {
+        'task': 'payments.tasks.check_pending_mpesa_payments',
+        'schedule': crontab(minute='*/5'),  # Every 5 minutes
+    },
 }
