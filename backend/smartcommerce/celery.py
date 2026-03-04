@@ -22,4 +22,8 @@ app.conf.beat_schedule = {
         'task': 'payments.tasks.check_pending_mpesa_payments',
         'schedule': crontab(minute='*/5'),  # Every 5 minutes
     },
+    'precompute-recommendations': {
+        'task': 'recommendations.tasks.precompute_all_recommendations',
+        'schedule': crontab(hour=2, minute=0),  # Daily at 2 AM
+    },
 }
