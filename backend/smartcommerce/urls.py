@@ -8,13 +8,10 @@ urlpatterns = [
     
     # API routes
     path('api/auth/', include('user_accounts.urls')),
-    path('api/account/', include('user_accounts.urls')),
+    path('api/account/', include(('user_accounts.urls', 'account'), namespace='account')),
     path('api/vendors/', include('vendors.urls')),
     path('api/products/', include('products.urls')),
-    path('api/vendor/products/', include('products.urls')),
-    path('api/cart/', include('orders.urls')),
-    path('api/wishlist/', include('orders.urls')),
-    path('api/orders/', include('orders.urls')),
+    path('api/', include('orders.urls')),  # cart/, wishlist/, orders/, checkout/
     path('api/payments/', include('payments.urls')),
     path('api/recommendations/', include('recommendations.urls')),
     path('api/analytics/', include('analytics.urls')),
