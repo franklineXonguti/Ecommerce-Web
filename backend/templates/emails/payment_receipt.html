@@ -1,0 +1,33 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Payment Receipt - {{ order.order_number }}{% endblock %}
+
+{% block content %}
+<h2>Payment Received</h2>
+<p>Hi {{ order.user.first_name|default:order.user.email }},</p>
+<p>We've successfully received your payment for order {{ order.order_number }}.</p>
+
+<h3>Payment Details</h3>
+<p><strong>Order Number:</strong> {{ order.order_number }}</p>
+<p><strong>Payment Method:</strong> {{ payment.provider }}</p>
+<p><strong>Amount Paid:</strong> KES {{ payment.amount_kes }}</p>
+<p><strong>Payment Date:</strong> {{ payment.created_at|date:"F d, Y H:i" }}</p>
+<p><strong>Transaction ID:</strong> {{ payment.provider_reference }}</p>
+
+<h3>Order Summary</h3>
+<table style="width: 100%; border-collapse: collapse;">
+    {% for item in order.items.all %}
+    <tr style="border-bottom: 1px solid #ddd;">
+        <td style="padding: 10px;">{{ item.product_variant.product.name }}</td>
+        <td style="padding: 10px; text-align: right;">{{ item.quantity }}x</td>
+        <td style="padding: 10px; text-align: right;">KES {{ item.subtotal_kes }}</td>
+    </tr>
+    {% endfor %}
+    <tr style="font-weight: bold;">
+        <td colspan="2" style="padding: 10px; text-align: right;">Total:</td>
+        <td style="padding: 10px; text-align: right;">KES {{ order.total_kes }}</td>
+    </tr>
+</table>
+
+<p>Thank you for your purchase!</p>
+{% endblock %}

@@ -7,6 +7,56 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-03-04
+
+### Added
+- Database migrations
+  - Initial migration files for all Django apps
+  - Proper migration dependencies and relationships
+  - Migration guide documentation
+- Comprehensive test suite
+  - pytest configuration with pytest-django
+  - Test fixtures for common objects
+  - Unit tests for all major models
+  - API endpoint tests with authentication
+  - Mocked tests for external services (Stripe, M-Pesa, Meilisearch)
+  - Test coverage reporting with pytest-cov
+  - Testing guide documentation
+- HTML email templates
+  - Base email template with consistent branding
+  - Welcome email with verification link
+  - Password reset email
+  - Order confirmation email
+  - Payment receipt email
+  - Cart recovery email with coupon code
+- Structured logging
+  - Comprehensive logging configuration
+  - Separate log files for general logs and errors
+  - Rotating file handlers (10MB max, 5 backups)
+  - Console and file logging
+  - Logging for Django, Celery, and application code
+- CI/CD pipeline
+  - GitHub Actions workflow for automated testing
+  - PostgreSQL and Redis services in CI
+  - Automated linting with flake8
+  - Automated test execution
+  - Code coverage reporting with Codecov
+  - Deployment workflow for tagged releases
+  - Docker build in deployment pipeline
+
+### Changed
+- Updated notification tasks to use HTML email templates
+- Enhanced email sending with EmailMultiAlternatives
+- Added logging to notification tasks
+- Updated .gitignore to exclude logs but keep logs directory
+- Added pytest-cov to development requirements
+
+### Documentation
+- Added TESTING_GUIDE.md
+- Added MIGRATION_GUIDE.md
+- Added RELEASE_NOTES_v0.4.0.md
+- Updated CHANGELOG.md
+
 ## [0.3.0] - 2024-01-01
 
 ### Added
@@ -132,7 +182,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Django Channels for WebSockets
 - Admin interfaces for all models
 
-[Unreleased]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.3.0...HEAD
+[Unreleased]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.4.0...HEAD
+[0.4.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.3.0...v0.4.0
 [0.3.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.2.0...v0.3.0
 [0.2.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.1.0...v0.2.0
 [0.1.0]: https://github.com/franklineXonguti/Ecommerce-Web/compare/v0.0.1...v0.1.0

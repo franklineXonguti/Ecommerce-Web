@@ -1,0 +1,30 @@
+{% extends "emails/base.html" %}
+
+{% block title %}Complete Your Purchase{% endblock %}
+
+{% block content %}
+<h2>You Left Items in Your Cart</h2>
+<p>Hi {{ user.first_name|default:user.email }},</p>
+<p>We noticed you left some items in your cart. Don't miss out on these great products!</p>
+
+<h3>Your Cart Items</h3>
+<table style="width: 100%; border-collapse: collapse;">
+    {% for item in cart.items.all %}
+    <tr style="border-bottom: 1px solid #ddd;">
+        <td style="padding: 10px;">{{ item.product_variant.product.name }}</td>
+        <td style="padding: 10px; text-align: right;">{{ item.quantity }}x</td>
+        <td style="padding: 10px; text-align: right;">KES {{ item.product_variant.get_price }}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+{% if coupon_code %}
+<p style="background-color: #FEF3C7; padding: 15px; border-radius: 5px; margin: 20px 0;">
+    <strong>Special Offer!</strong> Use code <strong>{{ coupon_code }}</strong> for {{ discount }}% off your order!
+</p>
+{% endif %}
+
+<a href="{{ cart_url }}" class="button">Complete Your Purchase</a>
+
+<p>This offer is valid for the next 48 hours.</p>
+{% endblock %}
