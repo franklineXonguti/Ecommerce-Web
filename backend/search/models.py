@@ -1,0 +1,1 @@
+# Search models - Meilisearch integration
